@@ -21,4 +21,9 @@ export class UserService {
       user: newUser,
     };
   }
+
+  async getAll() {
+    const users = await this.prisma.user.findMany();
+    return { users: users };
+  }
 }
