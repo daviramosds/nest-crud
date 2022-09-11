@@ -52,8 +52,5 @@ yarn test
 yarn start:dev
 ```
 
+### check the docs at https://localhost:3000/docs
 ### Done!!!
-
-## Docs
-
-### go to {project url}/docs
