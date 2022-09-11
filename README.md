@@ -1,18 +1,55 @@
-## Installation
+# Nest Crud
+
+**| Nest JS**
+
+**| Prisma**
+
+**| Jest**
+
+---
+
+## Setup
+
+### clone the repository
 
 ```bash
-$ npm install
+git clone https://github.com/daviramosds/nest-crud
 ```
 
-## Running the app
+### go to the project folder
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+cd nest-crud
 ```
+
+### create a ".env" and a ".env.test" based in the ".env.example"
+
+```bash
+touch .env && touch .env.test
+```
+
+### install packages
+
+```bash
+yarn
+```
+
+### create test db
+
+```bash
+yarn prisma:test:migrate
+```
+
+### run tests
+
+```bash
+yarn test
+```
+
+### run project
+
+```bash
+yarn start:dev
+```
+
+### Done!!!

@@ -7,8 +7,7 @@ import { UserController } from './user.controller';
 
 describe('UserController', () => {
   let controller: UserController;
-  // eslint-disable-next-line no-var
-  var id: number;
+  let id: number;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
