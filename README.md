@@ -53,3 +53,7 @@ yarn start:dev
 ```
 
 ### Done!!!
+
+## Docs
+
+### go to {project url}/docs
