@@ -28,4 +28,26 @@ describe('UserService', () => {
 
     await service.create(userData);
   });
+
+  it('shoud list all users', async () => {
+    await service.getAll();
+  });
+
+  it('shoud list the user with id 1', async () => {
+    await service.getOne(1);
+  });
+
+  it('shoud update the user with id 1', async () => {
+    const userData: any = {
+      name: faker.name.fullName(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
+    };
+
+    service.update(3, userData);
+  });
+
+  it('shoud delete the user with id 1', async () => {
+    await service.delete(1);
+  });
 });
