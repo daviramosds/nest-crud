@@ -3,20 +3,20 @@ import { PrismaService } from '../prisma/prisma.service';
 import { UserService } from './user.service';
 import { faker } from '@faker-js/faker';
 import { CreateUserDTO } from './dto';
+import { UserController } from './user.controller';
 
-describe('UserService', () => {
-  let service: UserService;
+describe('UserController', () => {
+  let controller: UserController;
+  // eslint-disable-next-line no-var
+  var id: number;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      controllers: [UserController],
       providers: [UserService, PrismaService],
     }).compile();
 
-    service = module.get<UserService>(UserService);
-  });
-
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+    controller = module.get<UserController>(UserController);
   });
 
   it('should create a new user', async () => {
@@ -26,28 +26,29 @@ describe('UserService', () => {
       password: faker.internet.password(),
     };
 
-    await service.create(userData);
+    const { user } = await controller.create(userData);
+    id = user.id;
   });
 
   it('shoud list all users', async () => {
-    await service.getAll();
+    await controller.getAll();
   });
 
-  it('shoud list the user with id 1', async () => {
-    await service.getOne(1);
+  it(`shoud list the created user`, async () => {
+    await controller.getOne(id);
   });
 
-  it('shoud update the user with id 1', async () => {
+  it('shoud update the created user', async () => {
     const userData: any = {
       name: faker.name.fullName(),
       email: faker.internet.email(),
       password: faker.internet.password(),
     };
 
-    await service.update(1, userData);
+    await controller.update(id, userData);
   });
 
-  it('shoud delete the user with id 1', async () => {
-    await service.delete(1);
+  it('shoud delete the created user', async () => {
+    await controller.delete(id);
   });
 });
