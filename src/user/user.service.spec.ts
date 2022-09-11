@@ -44,7 +44,7 @@ describe('UserService', () => {
       password: faker.internet.password(),
     };
 
-    service.update(3, userData);
+    await service.update(1, userData);
   });
 
   it('shoud delete the user with id 1', async () => {
